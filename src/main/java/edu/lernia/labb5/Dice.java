@@ -1,19 +1,19 @@
 package edu.lernia.labb5;
 
-public class Die extends BoardGameMaterial {
+public class Dice extends BoardGameMaterial {
     public int value = 0;
 
-    public Die() {
+    public Dice() {
         value = (int) Math.random();
     }
 
-    public int DieRoll() {
+    public int DiceRoll() {
         value = (int)(Math.random()*6+1);
         return value;
     }
 
-    public int DieReroll() {
-        return DieRoll();
+    public int DiceReroll() {
+        return DiceRoll();
     }
 
     public String getString() {
