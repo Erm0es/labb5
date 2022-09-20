@@ -18,16 +18,16 @@ public class YatziMain {
             System.out.println("Welcome to Yatzi!");
             while(turn < 3) {
                 System.out.println("Starting turn " + (turn+1) + " of 3, rolling dice.");
-                for(int i=0;i<dice.length;i++) {
-                    dice[i].DiceRoll();
+                for(int roll=0; roll<dice.length; roll++) {
+                    dice[roll].DiceRoll();
                     //dice[i].value = 5; //Test if yatzi work
-                    System.out.println(i + ": " + dice[i].getString());
+                    System.out.println(roll + ": " + dice[roll].getString());
                 }
                 //YATZI
                 boolean yatzi = true;
                 for(int sameNumber=1; sameNumber<5; sameNumber++) {
                     if(dice[sameNumber].value!=dice[sameNumber-1].value) {
-                        //Set flag to false
+                        //Set yatzi to false
                         yatzi = false;
                     }
                 }
@@ -38,14 +38,13 @@ public class YatziMain {
                     //Here we check if there is no Yatzy: then we check what turn we are on and asks the player if we want to continue or not
                     if(turn != 2) {
                         System.out.println("Want to throw again? (y for yes, anything else for no)");
-                        try (Scanner sc = new Scanner(System.in)) {
+                        Scanner sc = new Scanner(System.in);
                             if(sc.next().equals("y")) {
                                 ++turn;
                             } else {
                                 bGameIsOn = !bGameIsOn;
                                 break;
                             }
-                        }
                     } else {
                         System.out.println("Game over! Want to play again?");
                         Scanner sc = new Scanner(System.in);
