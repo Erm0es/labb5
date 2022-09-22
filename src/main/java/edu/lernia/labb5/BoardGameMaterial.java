@@ -1,4 +1,5 @@
 package edu.lernia.labb5;
+
 import java.util.Scanner;
 
 public class BoardGameMaterial {
@@ -14,7 +15,7 @@ public class BoardGameMaterial {
         }
     }
 
-    public static void CheckYatzi() {
+    public static void CheckYatzi(Dice[] dice) {
         for (int sameNumber = 1; sameNumber < 5; sameNumber++) {
             if (dice[sameNumber].value != dice[sameNumber - 1].value) {
                 yatzi = false;
@@ -24,6 +25,7 @@ public class BoardGameMaterial {
                 return;
             }
         }
+
     }
 
     public static void ContinueGame() {
@@ -38,7 +40,7 @@ public class BoardGameMaterial {
                     System.out.println(roll + ": " + dice[roll].getString());
                 }
 
-                CheckYatzi();
+                CheckYatzi(dice);
 
                 if (turn != 2) {
                     System.out.println("Want to throw again? (y for yes, anything else for no)");
@@ -61,5 +63,6 @@ public class BoardGameMaterial {
                 }
             }
         }
-    }                                    
+    }
+
 }

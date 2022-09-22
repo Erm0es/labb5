@@ -2,30 +2,29 @@ package edu.lernia.labb5;
 
 import org.junit.jupiter.api.Test;
 
-import edu.lernia.labb5.Dice;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class YatziTest {
     @Test
     void isYatziWhenAllDiceMatches() {
         Dice[] dice = new Dice[5];
-        for(Dice die: dice) {
-            die.value = 6;
+        for (int i = 0; i < 5; i++) {
+            dice[i] = new Dice();
         }
-        //Assert something?
+        BoardGameMaterial check = new BoardGameMaterial();
+        assertEquals(true, check.CheckYatzi(dice));
+        
     }
+
 
     @Test
     void isNotYatziWhenOneDieIsNotMatchingTheOther() {
         Dice[] dice = new Dice[5];
-        for(Dice d: dice) {
-            d.value = 6;
+        for(int i = 0; i < 5; i++) {
+            dice[i] = new Dice();
         }
-        dice[5].value = 1;
-        //Assert something?
+        BoardGameMaterial check = new BoardGameMaterial();
+        assertEquals(false, check.CheckYatzi(dice));
+        
     }
 }
