@@ -15,17 +15,17 @@ public class BoardGameMaterial {
         }
     }
 
-    public static void CheckYatzi(Dice[] dice) {
+    public static boolean CheckYatzi(Dice[] dice) {
         for (int sameNumber = 1; sameNumber < 5; sameNumber++) {
             if (dice[sameNumber].value != dice[sameNumber - 1].value) {
                 yatzi = false;
             }
             if (yatzi == true) {
                 System.out.println("You got YATZI! in " + dice[0].value + "'s");
-                return;
+                return yatzi;
             }
         }
-
+       return yatzi;
     }
 
     public static void ContinueGame() {
@@ -37,6 +37,7 @@ public class BoardGameMaterial {
                 System.out.println("Starting turn " + (turn + 1) + " of 3, rolling dice.");
                 for (int roll = 0; roll < dice.length; roll++) {
                     dice[roll].DiceRoll();
+                    //dice[roll].value = 5; //Test if yatzi work
                     System.out.println(roll + ": " + dice[roll].getString());
                 }
 

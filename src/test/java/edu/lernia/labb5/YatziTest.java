@@ -8,23 +8,20 @@ public class YatziTest {
     @Test
     void isYatziWhenAllDiceMatches() {
         Dice[] dice = new Dice[5];
-        for (int i = 0; i < 5; i++) {
-            dice[i] = new Dice();
+        for (int roll = 0; roll < 5; roll++) {
+            dice[roll] = new Dice();
         }
-        BoardGameMaterial check = new BoardGameMaterial();
-        assertEquals(true, check.CheckYatzi(dice));
-        
+        assertEquals(true, BoardGameMaterial.CheckYatzi(dice));
     }
 
 
     @Test
     void isNotYatziWhenOneDieIsNotMatchingTheOther() {
         Dice[] dice = new Dice[5];
-        for(int i = 0; i < 5; i++) {
-            dice[i] = new Dice();
+        for(int roll = 0; roll < 5; roll++) {
+            dice[roll] = new Dice();
         }
-        BoardGameMaterial check = new BoardGameMaterial();
-        assertEquals(false, check.CheckYatzi(dice));
-        
+        dice[4].DiceRoll();
+        assertEquals(false, BoardGameMaterial.CheckYatzi(dice));
     }
 }
